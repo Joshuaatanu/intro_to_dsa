@@ -30,3 +30,21 @@ def split(list):
 
     return left, right
 
+
+def merge(left, right):
+    """
+    Merges two lists(arrays), sorting them in the process
+    Returns a new Merged list
+    """
+
+    l = []
+    i = 0  # indexes in the left list
+    j = 0  # indexes in the right list
+
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            l.append(left[i])
+            i += 1
+        else:
+            l.append(right[j])
+            j += 1
