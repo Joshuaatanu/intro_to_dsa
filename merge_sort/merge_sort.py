@@ -58,7 +58,14 @@ def merge(left, right):
     return l
 
 
-alist = [54, 62, 93, 17, 77, 31, 44, 66, 20]
+def verify_sorted(list):
+    n = len(list)
+    if n == 0 or n == 1:
+        return True
 
-l = merge_sort(alist)
-print(l)
+    return list[0] < list[1] and verify_sorted(list[1:])
+
+alist=[54,26,93,17,77,31,44,55,20]
+l =merge_sort(alist)
+print(verify_sorted(alist))
+print(verify_sorted(l))
