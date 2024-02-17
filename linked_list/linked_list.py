@@ -54,7 +54,51 @@ class LinkedList:
             else:
                 current =current.next_node
         return None
+    
+    def insert(self,data,index):
 
+        """"
+        INsert a new node containing data at index position
+         insertion takes constant time  nut  finding the node at the insertion point 
+         takes O(n)
+
+         takes overall
+
+        """
+        if index == 0:
+            self.add(data)
+        if index > 0:
+            new = Node(data)
+            
+            position = index
+            current = self.head
+
+            while position  > 1:
+                current = Node.next_node
+                position -= 1
+
+            prev_node = current
+            next_node = current.next_node
+
+            prev_node.next_node = new
+            new.next_node = next_node
+
+    def remove(self,key):
+        current = self.head
+        previous= None
+        found = False
+
+        while current and not found:
+            if current.data == key and current is self.head:
+                found = True
+                self.head = current.next_node
+            elif current.data ==key :
+                found = True
+                previous.next_node = current.next_node
+            else:
+                previous =current
+                current = current.next_node
+        return current
 
 
 
